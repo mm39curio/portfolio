@@ -1,0 +1,57 @@
+@font-face {
+  font-family: Loki; /* set name */
+  src: url(LOKICOLA.TTF); /* url of the font */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #c39e74;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+h2 span {
+    font-size: 20vw;
+    font-family: 'Loki', sans-serif;
+    font-weight:lighter;
+}
+
+h2{
+    text-align: center;
+    color: azure;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.can {
+    width: 10vw;
+    height: 300px;
+    background-image: url('img/coca.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: red 5px solid;
+}
+
+.can:hover {
+    text-align: center;
+    height: 300px;
+    background-image: url('img/pepsi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.can img {
+    height: 100%;
+}
