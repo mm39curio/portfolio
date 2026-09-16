@@ -9,6 +9,9 @@
 <body>
     <header>
         <h2><span>Coca Cola</span> Vanilla</h2>
+        <h2 class="typewriter-heading">
+  I build <span id="typewriter" data-words="websites, brands, online stores"></span>
+</h2>
     </header>
     <main>
         <div class="can"></div>
@@ -19,6 +22,40 @@
         <div class="can"></div>
         <div class="can"></div>
    </main>
-    
+    <script>(function () {
+  var el = document.getElementById('typewriter');
+  if (!el) return;
+
+  var words = (el.getAttribute('data-words') || '').split(',').map(function (w) {
+    return w.trim();
+  });
+  var wordIndex = 0;
+  var charIndex = 0;
+  var deleting = false;
+
+  function tick() {
+    var word = words[wordIndex];
+    charIndex = deleting ? charIndex - 1 : charIndex + 1;
+    el.textContent = word.slice(0, charIndex);
+
+    var delay = deleting ? 50 : 90; /* delete faster than we type */
+    if (!deleting && charIndex === word.length) {
+      delay = 1600; /* pause on the completed word */
+      deleting = true;
+    } else if (deleting && charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      delay = 400;
+    }
+    setTimeout(tick, delay);
+  }
+
+  /* Respect reduced motion: show the first word as static text */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = words[0];
+  } else {
+    tick();
+  }
+})();</script>
 </body>
 </html>

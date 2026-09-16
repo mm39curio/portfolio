@@ -55,3 +55,32 @@ main {
 .can img {
     height: 100%;
 }
+
+.typewriter-heading {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* --- the snippet --- */
+
+/* Accent color for the rotating word */
+#typewriter {
+  color: red;
+}
+
+/* Blinking caret */
+#typewriter::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  background: currentColor;
+  vertical-align: -0.1em;
+  animation: typewriter-caret 0.9s steps(1) infinite;
+}
+
+@keyframes typewriter-caret {
+  50% { opacity: 0; }
+}
